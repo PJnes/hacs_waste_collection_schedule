@@ -33,11 +33,15 @@ class Source:
 
         s = requests.Session()
         r = s.get(f"https://www.warrington.gov.uk/bin-collections/get-jobs/{self._uprn}", headers=HEADERS)
-        json_data = json.loads(r.text)["schedule"]
+        json_data = json.loads(r.text)
 
         entries = []
 
-        for job in json_data:
+        # If no schedule, return empty list.
+        if not json_data["schedule"]:
+            return entries
+
+        for job in json_data["schedule"]:
             # Data doesn't contain bin type, so we need to extract it from the job name.
             bin_type = self.get_type(job["Name"])
             if not bin_type:
