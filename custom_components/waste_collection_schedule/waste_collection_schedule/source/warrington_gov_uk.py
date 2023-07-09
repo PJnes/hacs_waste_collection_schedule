@@ -8,12 +8,11 @@ TITLE = "Warrington Borough Council"
 DESCRIPTION = "Source for warrington.gov.uk services for Warrington Borough Council, UK."
 URL = "https://warrington.gov.uk"
 
-# TODO: Add test cases
 TEST_CASES = {
-    "Test_001": {"uprn": ""},
-    "Test_002": {"uprn": ""},
-    "Test_003": {"uprn": 0},
-    "Test_004": {"uprn": 0},
+    "Test_001": {"uprn": "10092997799"},
+    "Test_002": {"uprn": "100010296572"},
+    "Test_003": {"uprn": 100010291332},
+    "Test_004": {"uprn": 100010258176},
 }
 HEADERS = {
     "user-agent": "Mozilla/5.0",
